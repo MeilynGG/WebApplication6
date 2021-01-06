@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Insertar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cate" type="tns:Categoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Categoria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_categoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCategoria" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarPro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pro" type="tns:Productos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Productos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_categoria" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_producto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Categoria" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertarProResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarProResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pro" type="tns:Productos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarProductoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pro" type="tns:Productos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarProductoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cat" type="tns:Categoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarCateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cat" type="tns:Categoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarCateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertarSoapIn">
+    <wsdl:part name="parameters" element="tns:Insertar" />
+  </wsdl:message>
+  <wsdl:message name="InsertarSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarProSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarPro" />
+  </wsdl:message>
+  <wsdl:message name="InsertarProSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarProResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarProducto" />
+  </wsdl:message>
+  <wsdl:message name="ModificarProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarProducto" />
+  </wsdl:message>
+  <wsdl:message name="EliminarProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCateSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCate" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCateSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarCateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCateSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarCate" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCateSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarCateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSCategoriasSoap">
+    <wsdl:operation name="Insertar">
+      <wsdl:input message="tns:InsertarSoapIn" />
+      <wsdl:output message="tns:InsertarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarPro">
+      <wsdl:input message="tns:InsertarProSoapIn" />
+      <wsdl:output message="tns:InsertarProSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProducto">
+      <wsdl:input message="tns:ModificarProductoSoapIn" />
+      <wsdl:output message="tns:ModificarProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <wsdl:input message="tns:EliminarProductoSoapIn" />
+      <wsdl:output message="tns:EliminarProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCate">
+      <wsdl:input message="tns:ModificarCateSoapIn" />
+      <wsdl:output message="tns:ModificarCateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCate">
+      <wsdl:input message="tns:EliminarCateSoapIn" />
+      <wsdl:output message="tns:EliminarCateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSCategoriasSoap" type="tns:WSCategoriasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insertar">
+      <soap:operation soapAction="http://tempuri.org/Insertar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarPro">
+      <soap:operation soapAction="http://tempuri.org/InsertarPro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProducto">
+      <soap:operation soapAction="http://tempuri.org/ModificarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <soap:operation soapAction="http://tempuri.org/EliminarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCate">
+      <soap:operation soapAction="http://tempuri.org/ModificarCate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCate">
+      <soap:operation soapAction="http://tempuri.org/EliminarCate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSCategoriasSoap12" type="tns:WSCategoriasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insertar">
+      <soap12:operation soapAction="http://tempuri.org/Insertar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarPro">
+      <soap12:operation soapAction="http://tempuri.org/InsertarPro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProducto">
+      <soap12:operation soapAction="http://tempuri.org/ModificarProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <soap12:operation soapAction="http://tempuri.org/EliminarProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCate">
+      <soap12:operation soapAction="http://tempuri.org/ModificarCate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCate">
+      <soap12:operation soapAction="http://tempuri.org/EliminarCate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSCategorias">
+    <wsdl:port name="WSCategoriasSoap" binding="tns:WSCategoriasSoap">
+      <soap:address location="http://localhost:50830/WSCategorias.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSCategoriasSoap12" binding="tns:WSCategoriasSoap12">
+      <soap12:address location="http://localhost:50830/WSCategorias.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
